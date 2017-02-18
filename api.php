@@ -1,14 +1,5 @@
 <?php
 
-
-$api = new PHP_CRUD_API(array(
-		'username' => 'shareit',
-		'password' => 'd*8I(B7zR)[',
-		'database' => 'shareitdb'
-	));
-
-$api->executeCommand();
-
 //var_dump($_SERVER['REQUEST_METHOD'],$_SERVER['PATH_INFO']); die();
 
 interface DatabaseInterface {
