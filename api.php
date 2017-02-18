@@ -2441,7 +2441,7 @@ class PHP_CRUD_API {
 
 $api = new PHP_CRUD_API(array(
 	'dbengine'=>'MySQL',
-	'hostname'=>'localhost',
+	'hostname'=>'mysql857.umbler.com',
     'username'=>'shareit',
     'password'=>'d*8I(B7zR)[',
     'database'=>'shareitdb',
