@@ -47,15 +47,20 @@
       	  	"idPostFacebook": response.post_id,
       	  };
 
-		  $http.post('api.php', {username:'admin', password: 'admin', user: 'admin', pass: 'admin'})
+		  $http.post('api.php/', {username:'admin', password: 'admin'})
 		    .success(function(response) {
 				console.info('response: ', response);
+				$http.get('api.php').success(function(response) {
+					console.info('resposta de usuario: ', responsta)
+				})
 			});
+
+
 
 		  $http.post('api.php/shared/', dataApi)
 		    .success(function() {
-				$http.get(url).success(function(response) {
-					$scope.posts = php_crud_api_transform(response).posts;
+				$http.get('api.php/shared/').success(function(response) {
+					$scope.posts = response;
 				});
 			});
 
