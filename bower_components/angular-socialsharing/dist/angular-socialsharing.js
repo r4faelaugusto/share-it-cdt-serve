@@ -104,7 +104,7 @@ angular.module('socialsharing.services')
             return {
                 init: this.init,
                 $get: function($window) {
-                    cosole.info('teste......................................................');
+                    console.info('teste......................................................');
                     return new Facebook($window);
                 }
             };
