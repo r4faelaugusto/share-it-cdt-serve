@@ -15,6 +15,7 @@ angular.module('fbService', [])
     // init facebook feed when service is injected
     FB.init({
         appId: '1665429333751461',
+        secret: '1ead76274011a1e200ce53876313e795',
         status: true,
         cookie: true,
         xfbml: true,
@@ -46,7 +47,7 @@ angular.module('fbService', [])
 
         var deferred = $q.defer();
 
-        FB.getLoginStatus(function (response) {
+        facebookLibService.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 // login promise resolved
                 deferred.resolve({msg : 'connected', response : response });
@@ -73,7 +74,7 @@ angular.module('fbService', [])
                     }
                 );
             }
-        });
+        }, function(error) {console.info('error..: ', error)});
 
         return deferred.promise;
     };
@@ -103,9 +104,9 @@ angular.module('fbService', [])
             var deferred = $q.defer();
 
             ensureUserLoggedIn().then(
-
                 // user successfully authenticated
                 function(logInSuccess) {
+                	console.info('logInSuccess..', logInSuccess);
                     postToFacebook(config).then( 
                                                 
                         function(postSuccess) {
@@ -124,6 +125,19 @@ angular.module('fbService', [])
                 }
             );
 
+            return deferred.promise;
+        },
+        getName: function() {
+            var deferred = $q.defer();
+            FB.api('/me', { fields: 'first_name' }, 
+        	  function(response) {
+            	console.info('response, ', response);
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
             return deferred.promise;
         }
     }
