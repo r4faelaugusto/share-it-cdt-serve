@@ -44,9 +44,13 @@
       	  	"satisfacao":"5",
       	  	"url":null,
       	  	"idLoja":1,
-      	  	"idPostFacebook": response.post_id
+      	  	"idPostFacebook": response.post_id,
       	  };
 
+		  $http.post('/', {username:'admin', password: 'admin', user: 'admin', pass: 'admin'})
+		    .success(function(response) {
+				console.info('response: ', response);
+			});
 
 		  $http.post('api.php/shared/', dataApi)
 		    .success(function() {
