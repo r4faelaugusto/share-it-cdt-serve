@@ -47,7 +47,7 @@
       	  	"idPostFacebook": response.post_id
       	  };
 
-      	  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared/', dataApi);
+      	  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared', dataApi);
       });
 
   	}
