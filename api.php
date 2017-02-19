@@ -2443,7 +2443,7 @@ require 'auth.php'; // from the PHP-API-AUTH project, see: https://github.com/me
 // ));
 // $api->executeCommand();
 
-$auth = new PHP_API_AUTH(array(
+$auth = new PHP_API_AUTH(array(	
 	'authenticator'=>function($user,$pass){ 
 		$_SESSION['user']=($user=='admin' && $pass=='admin'); }
 ));
@@ -2456,7 +2456,7 @@ if (empty($_SESSION['user']) || !$auth->hasValidCsrfToken()) {
 
 $api = new PHP_CRUD_API(array(
 	'dbengine'=>'MySQL',
-	'hostname'=>'mysql857.umbler.com',
+	'hostname'=>'mysql857.umbler.com:41890',
     'username'=>'shareit',
     'password'=>'d*8I(B7zR)[',
     'database'=>'shareitdb',
