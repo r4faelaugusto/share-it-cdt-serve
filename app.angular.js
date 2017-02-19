@@ -47,7 +47,7 @@
       	  	"idPostFacebook": response.post_id,
       	  };
 
-		  $http.post('api.php/', {username:'admin', password: 'admin'})
+		  $http.post('http://shareitclub-com-br.umbler.net/api.php/', {username:'admin', password: 'admin'})
 		    .success(function(response) {
 				console.info('response: ', response);
 				$http.get('api.php').success(function(response) {
@@ -57,7 +57,7 @@
 
 
 
-		  $http.post('api.php/shared/', dataApi)
+		  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared/', dataApi)
 		    .success(function() {
 				$http.get('api.php/shared/').success(function(response) {
 					$scope.posts = response;
