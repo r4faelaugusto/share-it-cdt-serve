@@ -13,7 +13,7 @@
 
 
 
-  app.controller('PaymentCtrl', ['$scope', '$fb', '$http' function($scope, $fb, $http) {
+  app.controller('PaymentCtrl', ['$scope', '$fb', '$http', function($scope, $fb, $http) {
 	
   	$scope.dados = {
   		descricao: 'teste'
@@ -30,8 +30,13 @@
           caption: "WebStore"
   		};
 
+	console.info('dados em publicar: ', dados);
+
+
   	  $fb.feed(dados, function(response) {
+      	  
       	  console.info('postId: ', response.post_id);
+
       	  var dataApi = {
       	  	"descricao":dados.description,
       	  	"preco":"R$ 4.000,00",
@@ -39,38 +44,12 @@
       	  	"satisfacao":"5",
       	  	"url":null,
       	  	"idLoja":1,
-      	  	"idPostFacebook": response.post_id,
+      	  	"idPostFacebook": response.post_id
       	  };
+
       	  $http.post('http://localhost/api.php/shared', dataApi);
       });
 
-
-	 //  var fbConfig = {
-	 //      method: 'feed',
-	 //      name: 'nome teste',
-	 //      link: 'shareitclub-com-br.umbler.net',
-	 //      picture: 'https://getmdl.io/templates/android-dot-com/images/more-from-1.png',
-	 //      caption: 'compra online',
-	 //      description: 'Acabei de comprar uma nada no valor de nada...'
-	 //  };
-
-	 //  console.info('fbConfig', fbConfig);
-
-	 //  facebookService.post(fbConfig).then(
-		// function (success) {
-  //    		console.info('success...', success);
-		// },
-		// function (failure) {
-		// 	console.info('algo deu erraod: mas nao vai dar...', failure);
-		// });
-
-
-		// facebookService.getName().then(function(response) {
-		// 	console.info('response, ', response);
-		// });
-
-
-	 //  console.info('facebook service....', facebookService);
   	}
 
 
