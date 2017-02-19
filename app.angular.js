@@ -22,12 +22,13 @@
   	$scope.publicar = function() {	
 
   		var dados = {
-  		  name: 'SMARTPHONE ANDROID F500',
+  		  name: 'Macbook i7 500GB SSD',
 	      link: 'shareitclub-com-br.umbler.net',
-	      picture: 'https://getmdl.io/templates/android-dot-com/images/more-from-1.png',
+	      picture: 'https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/M/AC/MACBOOKPRO/MACBOOKPRO?wid=1200&hei=630&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=6xyk93',
 	      caption: 'compra online',
-	      description: 'Acabei de comprar uma nada no valor de nada...',
-          caption: "WebStore"
+	      description: 'Acabei de comprar um Macbook i7 no valor de R$ 4.000,00',
+          caption: "WebStore",
+preco: 'R$ 4.000,00'
   		};
 
 	console.info('dados em publicar: ', dados);
