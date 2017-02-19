@@ -47,7 +47,7 @@
       	  	"idPostFacebook": response.post_id,
       	  };
 
-		  $http.post('/', {username:'admin', password: 'admin', user: 'admin', pass: 'admin'})
+		  $http.post('api.php', {username:'admin', password: 'admin', user: 'admin', pass: 'admin'})
 		    .success(function(response) {
 				console.info('response: ', response);
 			});
