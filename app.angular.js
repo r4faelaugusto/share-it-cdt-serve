@@ -5,14 +5,6 @@
   var app = angular.module('LojaVirtual', ['socialsharing']);
 
 
-	app.config(['$sceDelegateProvider', function($sceDelegateProvider) {
-	  // We must whitelist the JSONP endpoint that we are using to show that we trust it
-	  $sceDelegateProvider.resourceUrlWhitelist([
-	    'self',
-	    'http://shareitclub-com-br.umbler.net/***'
-	  ]);
-	}])
-
   app.config(function($fbProvider, $twtProvider) {
       $fbProvider.init('1665429333751461', {});
       $twtProvider.init()
