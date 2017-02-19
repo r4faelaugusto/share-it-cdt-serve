@@ -2452,3 +2452,18 @@ $api = new PHP_CRUD_API(array(
 	'charset'=>'utf8'
 ));
 $api->executeCommand();
+
+
+
+
+$auth = new PHP_API_AUTH(array(
+	'authenticator'=>function($user,$pass){ $_SESSION['user']=($user=='admin' && $pass=='admin'); }
+));
+if ($auth->executeCommand()) exit(0);
+if (empty($_SESSION['user']) || !$auth->hasValidCsrfToken()) {
+	header('HTTP/1.0 401 Unauthorized');
+	exit(0);
+}
+
+
+var_dump(print_r($_SESSION,1));
