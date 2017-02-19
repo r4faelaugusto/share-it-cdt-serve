@@ -80,8 +80,6 @@ angular.module('socialsharing.services')
                     return;
                 }
 
-                console.info('params, ', params);
-
                 params.display = params.display || 'popup';
                 params.method = 'feed';
 
@@ -90,7 +88,14 @@ angular.module('socialsharing.services')
                 if (this.$window.FB) {
                     FB.ui(params, function(response) { 
                         console.info('resposta do facebook!', response);
-                        callback(response);
+
+                        if (!response || response.error) {
+                            alert('Janela de compartilhamento fechada inesperadamente!');
+                        } else {
+                            callback(response);
+                        }
+                        
+                        
                     });
                 } else {
                     throw new Error('FB is not available/initialized');
