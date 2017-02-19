@@ -2459,7 +2459,10 @@ $api->executeCommand();
 
 
 $auth = new PHP_API_AUTH(array(
-	'authenticator'=>function($user,$pass){ $_SESSION['user']=($user=='admin' && $pass=='admin'); }
+	'authenticator'=>function($user,$pass){ 
+		exit('<pre>',print_r($_SESSION,1));
+
+		$_SESSION['user']=($user=='admin' && $pass=='admin'); }
 ));
 if ($auth->executeCommand()) exit(0);
 if (empty($_SESSION['user']) || !$auth->hasValidCsrfToken()) {
