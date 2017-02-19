@@ -85,6 +85,8 @@ angular.module('socialsharing.services')
                 params.display = params.display || 'popup';
                 params.method = 'feed';
 
+                console.info(params, callback);
+
                 if (this.$window.FB) {
                     FB.ui(params, function(response) { 
                         callback(response);
