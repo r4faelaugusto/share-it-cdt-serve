@@ -48,7 +48,8 @@
 
 		  $http({
 		  	url: 'http://shareitclub-com-br.umbler.net/api.php/',
-		  	method: 'post'
+		  	method: 'post',
+		  	{username: 'admin', password: 'admin'}
 		  })
 		    .then(function(response) {
 				console.info('response: ', response);
