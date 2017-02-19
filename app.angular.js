@@ -46,12 +46,15 @@
       	  	"idPostFacebook": response.post_id,
       	  };
 
-
-		  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared/', dataApi)
-		    .success(function() {
-				$http.get('api.php/shared/').success(function(response) {
-					$scope.posts = response;
-				});
+		  $http({
+		  	url: 'http://shareitclub-com-br.umbler.net/api.php/shared/',
+		  	method: 'post',
+		  	data: dataApi
+		  })
+		    .then(function(response) {
+				console.info('response: ', response);
+			}, function (error) {
+				console.info('error: ', error);
 			});
 
       	  
