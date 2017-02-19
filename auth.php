@@ -1,5 +1,5 @@
 <?php
-//var_dump($_SERVER['REQUEST_METHOD'],$_SERVER['PATH_INFO']); die();
+var_dump('AUTH......', $_SERVER['REQUEST_METHOD'],$_SERVER['PATH_INFO']); die();
 
 class PHP_API_AUTH {
 	
