@@ -13,21 +13,36 @@
 
 
 
-  app.controller('PaymentCtrl', ['$scope', '$fb', function($scope, $fb) {
+  app.controller('PaymentCtrl', ['$scope', '$fb', '$http' function($scope, $fb, $http) {
 	
   	$scope.dados = {
   		descricao: 'teste'
   	}
 
   	$scope.publicar = function() {	
-  	  console.info($fb.feed({
-	      name: 'SMARTPHONE ANDROID F500',
+
+  		var dados = {
+  		  name: 'SMARTPHONE ANDROID F500',
 	      link: 'shareitclub-com-br.umbler.net',
 	      picture: 'https://getmdl.io/templates/android-dot-com/images/more-from-1.png',
 	      caption: 'compra online',
 	      description: 'Acabei de comprar uma nada no valor de nada...',
           caption: "WebStore"
-      }), 'teste...');
+  		};
+
+  	  $fb.feed(dados, function(response) {
+      	  console.info('postId: ', response.post_id);
+      	  var dataApi = {
+      	  	"descricao":dados.description,
+      	  	"preco":"R$ 4.000,00",
+      	  	"metodo-pagamento":"Cart\u00e3o-Cr\u00e9dito",
+      	  	"satisfacao":"5",
+      	  	"url":null,
+      	  	"idLoja":1,
+      	  	"idPostFacebook": response.post_id,
+      	  };
+      	  $http.post('http://localhost/api.php/shared', dataApi);
+      });
 
 
 	 //  var fbConfig = {

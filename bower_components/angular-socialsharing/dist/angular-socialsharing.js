@@ -74,7 +74,7 @@ angular.module('socialsharing.services')
                 this.$window = $window;
             }
 
-            Facebook.prototype.feed = function(params) {
+            Facebook.prototype.feed = function(params, callback) {
 
                 if (!params) {
                     return;
@@ -86,7 +86,9 @@ angular.module('socialsharing.services')
                 params.method = 'feed';
 
                 if (this.$window.FB) {
-                    FB.ui(params, function(response) { console.info(response) });
+                    FB.ui(params, function(response) { 
+                        callback(response);
+                    });
                 } else {
                     throw new Error('FB is not available/initialized');
                 }
@@ -104,7 +106,6 @@ angular.module('socialsharing.services')
             return {
                 init: this.init,
                 $get: function($window) {
-                    console.info('teste......................................................');
                     return new Facebook($window);
                 }
             };
