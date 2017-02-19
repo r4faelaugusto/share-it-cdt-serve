@@ -2,38 +2,30 @@
 
   'use strict';
 
-  var app = angular.module('LojaVirtual', ['ngFacebook']);
+  var app = angular.module('LojaVirtual', ['fbService']);
 
-  app.config(function($facebookProvider) {
-  	$facebookProvider.setAppId('1665429333751461');
-  })
+  app.controller('PaymentCtrl', ['$scope', 'facebookService', function($scope, facebookService) {
 
-  // app.config(function('FacebookProvider') {
-
-  // 	FacebookProvider.setAppId('1665429333751461');
-
-  // });
-
-  app.controller('PaymentCtrl', ['$scope', '$facebook', function($scope, $facebook) {
+  	console.info('fbservice: ', facebookService);
 
   	$scope.dados = {
   		descricao: 'teste'
   	}
 
   	$scope.publicar = function() {
-  		console.info('button pressed', $facebook.ui('feed').then(
-  			function(response){console.info('response: ', response)}, 
-  			function(error)   {console.info('error:    ', error)}
-  			));
+  		// console.info('button pressed', $facebook.ui('feed').then(
+  		// 	function(response){console.info('response: ', response)}, 
+  		// 	function(error)   {console.info('error:    ', error)}
+  		// 	));
+  		console.info('button pressed');
 
-
-	  $facebook.api("/me").then( 
-        function(response) {
-          $scope.welcomeMsg = "Welcome " + response.name;
-        },
-        function(err) {
-          $scope.welcomeMsg = "Please log in";
-        });
+	  // $facebook.api("/me").then( 
+   //      function(response) {
+   //        $scope.welcomeMsg = "Welcome " + response.name;
+   //      },
+   //      function(err) {
+   //        $scope.welcomeMsg = "Please log in";
+   //      });
   		
   	}
 
