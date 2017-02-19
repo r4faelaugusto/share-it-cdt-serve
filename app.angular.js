@@ -46,23 +46,13 @@
       	  	"idPostFacebook": response.post_id,
       	  };
 
-		  $http({
-		  	url: 'http://shareitclub-com-br.umbler.net/api.php/',
-		  	method: 'post',
-		  	data: {username: 'admin', password: 'admin'}
-		  })
-		    .then(function(response) {
-				console.info('response: ', response);
-			}, function (error) {
-				console.info('error: ', error);
-			});
 
-		 //  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared/', dataApi)
-		 //    .success(function() {
-			// 	$http.get('api.php/shared/').success(function(response) {
-			// 		$scope.posts = response;
-			// 	});
-			// });
+		  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared/', dataApi)
+		    .success(function() {
+				$http.get('api.php/shared/').success(function(response) {
+					$scope.posts = response;
+				});
+			});
 
       	  
       });
