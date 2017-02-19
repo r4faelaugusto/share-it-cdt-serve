@@ -65,7 +65,7 @@ angular.module('socialsharing.services')
                     });
                 }
 
-                loadSdkAsync('facebook-jssdk', ['//connect.facebook.net', config.locale, 'all.js'].join('/'));
+                loadSdkAsync('facebook-jssdk', ['//connect.facebook.net', config.locale, 'sdk.js'].join('/'));
 
                 fbAsyncInit();
             };
@@ -80,11 +80,13 @@ angular.module('socialsharing.services')
                     return;
                 }
 
+                console.info('params, ', params);
+
                 params.display = params.display || 'popup';
                 params.method = 'feed';
 
                 if (this.$window.FB) {
-                    FB.ui(params, function(response) {});
+                    FB.ui(params, function(response) { console.info(response) });
                 } else {
                     throw new Error('FB is not available/initialized');
                 }
@@ -102,6 +104,7 @@ angular.module('socialsharing.services')
             return {
                 init: this.init,
                 $get: function($window) {
+                    cosole.info('teste......................................................');
                     return new Facebook($window);
                 }
             };
