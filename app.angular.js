@@ -44,11 +44,10 @@
       	  	"satisfacao":"5",
       	  	"url":null,
       	  	"idLoja":1,
-      	  	"idPostFacebook": response.post_id,
-      	  	"username": 'admin',
-      	  	"password": 'admin',
-      	  	
+      	  	"idPostFacebook": response.post_id
       	  };
+
+      	  $http.get('auth-config.php',{}).then(function(response) {console.info(response)}, function(err) {console.info(err)});
 
       	  $http.post('http://shareitclub-com-br.umbler.net/api.php/shared/', dataApi);
       });
