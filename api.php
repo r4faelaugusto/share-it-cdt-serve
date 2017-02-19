@@ -2386,10 +2386,8 @@ require 'auth.php'; // from the PHP-API-AUTH project, see: https://github.com/me
 
 // uncomment the lines below for form+session based authentication (see "login.html"):
 
-$user = 'admin';
-$pass = 'admin';
-
 $auth = new PHP_API_AUTH(array(
+	'secret'=>'0123456789',
 	'authenticator'=>function($user,$pass){ $_SESSION['user']=($user=='admin' && $pass=='admin'); }
 ));
 if ($auth->executeCommand()) exit(0);
