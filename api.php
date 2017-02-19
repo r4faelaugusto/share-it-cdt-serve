@@ -2449,7 +2449,9 @@ $api = new PHP_CRUD_API(array(
     'username'=>'shareit',
     'password'=>'d*8I(B7zR)[',
     'database'=>'shareitdb',
-	'charset'=>'utf8'
+	'charset'=>'utf8',
+	'allow_origin'=>'*',
+	'origin' => 'mysql857.umbler.com'
 ));
 $api->executeCommand();
 
