@@ -40,7 +40,7 @@ angular.module('socialsharing.services')
                             xfbml: true,
                             secret: '1ead76274011a1e200ce53876313e795',
                             cookie: true,
-                            version: 'v2.4'
+                            version: 'v2.8'
                         });
                     };
 
