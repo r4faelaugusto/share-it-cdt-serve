@@ -89,6 +89,7 @@ angular.module('socialsharing.services')
 
                 if (this.$window.FB) {
                     FB.ui(params, function(response) { 
+                        console.info('resposta do facebook!', response);
                         callback(response);
                     });
                 } else {
